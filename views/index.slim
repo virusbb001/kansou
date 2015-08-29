@@ -1,0 +1,19 @@
+doctype 5
+html lang="en"
+  head
+    meta charset="UTF-8"
+    title
+    script src="/js/jquery.js"
+    script src="/js/main.js"
+    link rel="stylesheet" href="/css/css.css"
+  body
+    h1
+      | 感想どうぞ
+    div class="comment-form"
+      input id="user-name" type="text" placeholder="NONAME"
+      br
+      textarea id="comment-body"
+      br
+      input id="submit-comment" type="button" value="コメントする"
+    div class="comment-view"
+      div id="comments"
