@@ -22,7 +22,7 @@ end
 post '/comment' do
   Comment.create({
     body: params[:body],
-    user_name: params[:user_id]
+    name: params[:user_id]
   })
 end
 
