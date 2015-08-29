@@ -1,0 +1,12 @@
+development:
+    adapter: sqlite3
+    database: bbs.db
+
+production:
+    adapter: postgresql
+    host: ec2-54-83-59-154.compute-1.amazonaws.com
+    port: 5432
+    database: d3el0cq2do98a4
+    username: mxryljbyvrmsld
+    password: 3BQzUiMMvJJgOYIG-tuk59G_dL
+
