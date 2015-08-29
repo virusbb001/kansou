@@ -5,8 +5,7 @@ require 'sinatra/reloader' if development?
 
 require 'active_record'
 
-ActiveRecord::Base.configurations= YAML.load_file('database.yml')
-ActiveRecord::Base.establish_connection(:development)
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'sqlite3://localhost/bbs.db')
 
 class Comment < ActiveRecord::Base
 end
