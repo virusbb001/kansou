@@ -5,6 +5,11 @@ $(function(){
   if(userId.length == 0){
    userId="NONAME";
   }
+  if(comment.length==0){
+   $("#error").text("内容が空の場合は投稿できません");
+   return;
+  }
+  console.log(comment.length);
   var request=$.ajax({
     type: "POST",
     url: "/comment",
@@ -22,6 +27,9 @@ $(function(){
    }).done(function(res){
    var c=make_post_content(res);
    $("#comments").prepend(c);
+   $("#error").text("");
+   $("#comment-body").val("");
+   $("#user-name").val("");
    });
   });
  });
@@ -41,7 +49,7 @@ $(function(){
 
 function make_post_content(res){
  var comment=$(document.createElement("div")).addClass("comment");
- var name=$(document.createElement("div")).addClass("comment-name").text("名前: "+res.user_name);
+ var name=$(document.createElement("div")).addClass("comment-name").text("名前: "+res.name);
  var content=$(document.createElement("div")).addClass("comment-content").text(res.body);
  var content_text=content.html();
  content.html(content_text.replace(/\n/mg,"<br>"));
