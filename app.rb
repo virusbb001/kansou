@@ -5,7 +5,7 @@ require 'sinatra/reloader' if development?
 
 require 'active_record'
 
-ActiveRecord::Base.configurations= YAML.load_file('database.yml')
+ActiveRecord::Base.configurations = YAML.load_file('database.yml')
 ActiveRecord::Base.establish_connection(:development)
 
 class Comment < ActiveRecord::Base
@@ -20,10 +20,10 @@ get '/' do
 end
 
 post '/comment' do
-  Comment.create({
+  Comment.create(
     body: params[:body],
     user_name: params[:user_id]
-  })
+  )
 end
 
 get '/comments' do
@@ -32,6 +32,6 @@ get '/comments' do
 end
 
 get '/comments/last' do
-  comment=Comment.last
+  comment = Comment.last
   json comment
 end
