@@ -1,2 +1,6 @@
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'vendor/bundle/**/*'
 Style/AsciiComments:
   Enabled: false
