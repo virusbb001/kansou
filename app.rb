@@ -5,7 +5,10 @@ require 'sinatra/reloader' if development?
 
 require 'active_record'
 
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'sqlite3://localhost/bbs.db')
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 
+                                        "adapter" => "sqlite3",
+                                        "database" => "./bbs.db"
+                                       )
 
 class Comment < ActiveRecord::Base
 end
